@@ -23,5 +23,29 @@
 (1) 전체 templete을 간단하게 만들기
 (2) Movie API에서 가져온 모든 데이터를 STATE에 넣기
 (3) MainImage Component를 만들기
-(4) GridCardComponent 만들기
-(5) LoadMoreFunction 만들기
+(4) GridCardComponent 만들기 -> 5강
+(5) LoadMoreFunction 만들기 -> 6강
+
+
+5. Grid Card Component
+- rfce 명령어를 입력하면 functional Component를 자동완성해줌
+- extetions > es7 을 설치하면 됨
+- antd -> Row 기능
+- gutter :: space 여유를 주는 기능? 디자인같은데
+- array를 loop
+{Movies && Movies.map((movie,index) => (
+    <React.Fragment key ={index}>
+))}
+
+
+6. LoadMoreFunction 
+- click event and scroll function 
+
+7.   moviedetail page 
+- 무비API에서 가져온 정보를 State에 넣고
+- Detail templete를 만들고
+- 영화 ID에 해당하는 Crew Infomation을 가져온뒤 State에 넣고 
+- State에 보관된 Data들을 화면에 보여주기
+
+
+8. Toggle Actor View Function
