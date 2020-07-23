@@ -1,0 +1,27 @@
+1. 소개
+
+2. bolier-plate , mongodb 연결
+- 기본 껍데기 https://github.com/jaewonhimnae/boiler-plate-ko/
+- 다운받고, npm install (root에서한번, client에서한번, 기존 프로젝트의 dependency를 받음)
+- 내 github랑 연동 
+(1) 내 github에 repository를 create
+(2) local에서 root폴더에서 git init
+(3) add & commit한뒤, git remote add origin [주소] , [주소]는 github repository 만들면 주소 나옴
+(4) git push origin master 하고 연결 완료
+
+3. The MovieDB API
+- https://www.themoviedb.org/
+- 가입후 api key생성
+- 내 API key(v3 auth) :: fcaa5f038b59ab357e13da6a230b9650
+- 내 API key읽기 액세스 토큰 (v4 aut) :: eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmY2FhNWYwMzhiNTlhYjM1N2UxM2RhNmEyMzBiOTY1MCIsInN1YiI6IjVmMTdlMzNhNDI4NGVhMDAzNDM1NDMzZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.EChvBqHgLj03M9WcDS8JsMdSU99S_10S6EEDYO3Nubk
+- 예시 :: https://api.themoviedb.org/3/movie/550?api_key=fcaa5f038b59ab357e13da6a230b9650
+- api url :: https://api.themoviedb.org/3/  -> 상수로 설정
+- api image url:: https://image.tmdb.org/
+
+
+4. Landing Page 
+(1) 전체 templete을 간단하게 만들기
+(2) Movie API에서 가져온 모든 데이터를 STATE에 넣기
+(3) MainImage Component를 만들기
+(4) GridCardComponent 만들기
+(5) LoadMoreFunction 만들기
