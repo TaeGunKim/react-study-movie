@@ -1,8 +1,9 @@
 import React, {useEffect, useState } from 'react'
 import { API_URL,API_KEY,IMAGE_BASE_URL } from '../../Config';
 import MainImage from '../LandingPage/Sections/MainImage'
-import MovieInfo from './Sections/MovieInfo'
+import MovieInfo from './Sections/MovieInfo';
 import GridCards from '../commons/GridCards';
+import Favorite from './Sections/Favorite';
 import { Row } from 'antd';
 
 
@@ -61,7 +62,17 @@ function MovieDetail(props) {
             }
 
             {/*Body */}
-            <div style={{ width:'85%', margin:'1rem auto'}}>
+            <div style={{ width:'85%', margin:'1rem auto'}}>                
+                {/*Favorite Button*/}
+                <div style={{display:'flex', justifyContent:'flex-end'}}>
+                    {/*
+                    LoginPage.js에 보면 로그인 할때  window.locaStorage에 set한 부분을 가져오면 됨
+                    window.localStorage.setItem('userId', response.payload.userId);
+                    */}
+                    <Favorite movieInfo={Movie} movieId = {movieId} userFrom={localStorage.getItem('userId')}
+                    />
+                </div>
+
 
                 {/*Movie Info */}
                 <MovieInfo

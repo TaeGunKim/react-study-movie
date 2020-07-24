@@ -49,3 +49,10 @@
 
 
 8. Toggle Actor View Function
+
+9. Favorite Button Function
+(1) Favorite Model 만들기 (userForm, movieId, movieTitle, movieIMage, movieRunTime)
+(2) Favorite Button UI
+(3) count Favorite 
+(4) I, is Favorite
+(5) show data to View
