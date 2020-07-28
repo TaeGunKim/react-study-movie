@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Axios from 'axios'
+import {Button} from 'antd'
 
 function Favorite(props) {
 
@@ -11,23 +12,39 @@ function Favorite(props) {
     const movieRunTime = props.movieInfo.movieRunTime
 
 
+    const [FavoriteNumber, setFavoriteNumber] = useState(0)
+    const [Favorited, setFavorited] = useState(false)
+
+    //userFrom : userFrom 이걸 let에 넣을때 userFrom 만으로 생략이 가능함
+    let variable = {
+        userFrom: userFrom,
+        movieId: movieId,
+        movieTitle: movieTitle,
+        moviePost: moviePost,
+        movieRunTime: movieRunTime
+    }
+
     useEffect(() => {        
 
-        let variable = {
-            userFrom,
-            movieId
-        }
 
         console.log("movieId :: " + movieId);
 
         Axios.post('/api/favorite/favoriteNumber', variable)
             .then(response =>{
+                setFavoriteNumber(response.data.favoriteNumber)                                       
                 if(response.data.success){
-                    console.log("get favoriteNum~~~~~~~~~~~~"); 
-                    console.log(response.data);
-                    console.log("get favoriteNum~~~~~~~~~~~~"); 
                 }else{
                     alert('숫자 정보를 가져오는데 실패 하였습니다!');
+                }
+
+            })
+
+        Axios.post('/api/favorite/favorited', variable)
+            .then(response =>{
+                if(response.data.success){
+                    setFavorited(response.data.favorited)
+                }else{
+                    alert('정보를 가져오는데 실패 하였습니다!');
                 }
 
             })
@@ -35,9 +52,38 @@ function Favorite(props) {
         
     }, [])
 
+    const onClickFavorite = () => {
+
+        if(Favorited){
+            Axios.post('/api/favorite/removeFromFavorite', variable)
+            .then(response => {
+                if(response.data.success){
+                    console.log("a :: " + FavoriteNumber);
+
+                    setFavoriteNumber(FavoriteNumber - 1)
+                    setFavorited(!Favorited)
+                }else{
+                    alert('삭제 실패!');
+                }
+            })
+        }else{
+            Axios.post('/api/favorite/addToFavorite', variable)
+            .then(response => {
+                if(response.data.success){
+                    console.log("b :: " + FavoriteNumber);
+
+                    setFavoriteNumber(FavoriteNumber + 1)
+                    setFavorited(!Favorited)
+                }else{
+                    alert('추가 실패!');
+                }
+            })
+        }
+    }
+
     return (
         <div>
-            <button>Favorite</button>
+            <Button onClick={onClickFavorite}>{Favorited ? "Not Favorite" : "Add to Favortie"} {FavoriteNumber}</Button>
         </div>
     )
 }
