@@ -29,6 +29,9 @@ function MovieDetail(props) {
             .then(response => response.json())
             .then(response => {
                 //console.log(response)
+                //console.log("`````````````````");
+                //console.log(response);
+                //console.log("`````````````````");
                 setMovie(response)
             })
     
@@ -68,9 +71,8 @@ function MovieDetail(props) {
                     {/*
                     LoginPage.js에 보면 로그인 할때  window.locaStorage에 set한 부분을 가져오면 됨
                     window.localStorage.setItem('userId', response.payload.userId);
-                    */}
-                    <Favorite movieInfo={Movie} movieId = {movieId} userFrom={localStorage.getItem('userId')}
-                    />
+                    */}                    
+                    <Favorite movieInfo={Movie} movieId = {movieId} userFrom={localStorage.getItem('userId')}/>
                 </div>
 
 

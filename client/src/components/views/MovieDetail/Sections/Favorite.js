@@ -28,6 +28,8 @@ function Favorite(props) {
 
 
         console.log("movieId :: " + movieId);
+        console.log("props.movieInfo :: " + JSON.stringify(props));
+        
 
         Axios.post('/api/favorite/favoriteNumber', variable)
             .then(response =>{
