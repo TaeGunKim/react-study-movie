@@ -56,3 +56,12 @@
 (3) count Favorite 
 (4) I, is Favorite
 (5) show data to View
+
+
+
+
+** 
+기본 git repository를 가져오면 Error: Cannot find module 'bcrypt' 오류가 생길수있음
+강사님 기준과 현재 버전이 안맞는듯, 
+서버쪽 package.json에서  "bcrypt": "^5.0.0",으로 변경한뒤
+npm install 재인스톨해주면됨
